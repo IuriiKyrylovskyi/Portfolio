@@ -60,8 +60,6 @@ body {
   flex-direction: column;
   font-size: 16px;
 
-  &._loaded {
-  }
 }
 
 //<ОСНОВНАЯ СЕТКА>====================================
@@ -84,6 +82,7 @@ body {
     box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.15);
     padding: 40px;
     display: flex;
+
     background: rgb(247, 247, 247);
     border-radius: 15px;
     // object-fit: cover;
@@ -100,11 +99,12 @@ body {
 }
 .sidebar {
   background: #1e2939;
-  // background: #151b2c;
+  box-shadow: 0px 0px 20px 0px rgba(59,40,40,0.64);
   max-width: 373px;
   padding-top: 40px;
   padding-bottom: 40px;
   border-radius: 5px;
+
   /* display: flex; */
   @media (max-width: 860px) {
     max-width: 273px;
@@ -112,12 +112,10 @@ body {
   @media (max-width: 640px) {
     max-width: 100%;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     padding: 20px 0px 20px 0px;
   }
   @media (max-width: 500px) {
-    flex-direction: column;
   }
   &__img-box {
     border-radius: 50%;
@@ -145,11 +143,6 @@ body {
   }
 }
 
-.my-photo {
-  /* width: 373px; */
-  // max-width: 100%;
-}
-
 .about-me-container {
   padding: 65px 50px;
   @media (max-width: $md3+px) {
@@ -168,19 +161,32 @@ body {
     margin: 30px 10px 0px 0px;
   }
   @media (max-width: 640px) {
-    display: flex;
-    flex-direction: column;
-    max-width: 45%;
-    margin: 10px 10px 0px 0px;
+    display: none;
+    // display: flex;
+    // flex-direction: column;
+    // max-width: 45%;
+    // margin: 10px 10px 0px 0px;
   }
-  @media (max-width: 500px) {
-    max-width: 90%;
-  }
+  // @media (max-width: 500px) {
+  //   max-width: 90%;
+  // }
 }
 .contacts {
   padding: 0px 30px 0px 30px;
+  &.mob{
+    display: none;
+  }
   @media (max-width: 640px) {
     &.part {
+      display: none;
+      padding: 0;
+      margin: 20px auto 0px;
+      max-width: auto;
+      flex: 1 1 auto;
+      order: 4;
+    }
+    &.mob {
+      display: block;
       padding: 0;
       margin: 20px auto 0px;
       max-width: auto;
@@ -202,11 +208,12 @@ body {
   &__box {
     white-space: nowrap;
 
-    //
-    // @media (max-width:640px){
-    // 	display: block;
-    // }
-    // }
+    
+    @media (max-width:640px){
+      width: 100%;
+    	display: flex;
+      justify-content: space-around;
+    }
   }
   &__link {
     display: flex;
@@ -217,7 +224,7 @@ body {
     color: #626974;
     margin: 0px 0px 10px 0px;
     transition: $tr;
-    @media (min-width: $md2+px) {
+ @media (min-width: $md2+px) {
       &:hover {
         color: #fff;
       }
@@ -225,6 +232,10 @@ body {
     a {
       color: #626974;
     }
+      @media (max-width: 640px) {
+    width: 35px;
+      height: 35px;
+      }
   }
   &__link-type {
     display: inline-block;
@@ -255,6 +266,10 @@ body {
         width: 20px;
         height: 25px;
       }
+    //   @media (max-width: 640px) {
+    // width: 35px;
+    //   height: 35px;
+    //   }
       // @media (max-width: 640px) {
       // 	width: 20px;
 
@@ -271,13 +286,14 @@ body {
 
 .tech-skills {
   padding: 0px 30px 0px 30px;
-  @media (max-width: 570px) {
-    max-width: 45%;
-    padding: 0px 10px 0px 20px;
+  @media (max-width: 640px) {
+    display: none;
+    // max-width: 45%;
+    // padding: 0px 10px 0px 20px;
   }
-  @media (max-width: 500px) {
-    max-width: 90%;
-  }
+  // @media (max-width: 500px) {
+  //   max-width: 90%;
+  // }
 
   &__title {
     font-size: 22px;
@@ -290,13 +306,6 @@ body {
     }
   }
 
-  &__item {
-    // color: #e4630e;
-    // font-size: 16px;
-    // font-weight: 400;
-    // line-height: 24px;
-    // margin-left: 15px;
-  }
   &__text {
     display: block;
     color: #d2d4d7;
@@ -411,6 +420,18 @@ body {
   line-height: 24px;
   margin-top: 15px;
   margin-bottom: 5px;
+
+  &__link {
+     color: #ff6b08;
+  font-size: 18px;
+  font-weight: 700;
+  @media (min-width: $md2+px) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
 }
 
 .prof_black {
@@ -444,14 +465,9 @@ body {
   margin-bottom: 10px;
 }
 
-.my-projects {
-}
 .about-me-title-mob {
-  // display: none;
-  // @media (max-width: $md3+px) {
   display: inline-block;
   font-size: 14px;
-  // }
 }
 .projects {
   padding: 0px 0px 0px 30px;
@@ -512,17 +528,7 @@ body {
     margin: 0px 0px 0px 30px;
   }
 
-  &__item-page {
-    // @media (min-width: $md2+px) {
-    // 	&:hover {
-    // 		text-decoration: underline;
-    // 		+ .projects__preview {
-    // 			display: block;
-    // 			z-index: 1;
-    // 		}
-    // 	}
-    // }
-  }
+
 }
 
 .shimmer {
